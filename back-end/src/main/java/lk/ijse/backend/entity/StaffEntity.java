@@ -11,9 +11,9 @@ import java.sql.Date;
 
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
 @Entity
 @Table(name = "staff")
-@Data
 public class StaffEntity {
     @Id
     private String staffId;
