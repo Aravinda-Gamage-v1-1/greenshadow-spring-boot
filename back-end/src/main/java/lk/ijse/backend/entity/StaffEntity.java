@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.sql.Date;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -19,7 +20,8 @@ public class StaffEntity {
     private String staffId;
     private String firstName;
     private String lastName;
-    private String gender;
+    @Enumerated(EnumType.STRING)
+    private Gender gender;
     private String designation;
     @Column(unique = true)
     private String email;

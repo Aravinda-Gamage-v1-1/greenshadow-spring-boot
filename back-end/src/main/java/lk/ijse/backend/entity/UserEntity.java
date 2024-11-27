@@ -19,7 +19,7 @@ public class UserEntity {
     @Enumerated(EnumType.STRING)
     private Role role;
 
-    @OneToMany
+    @OneToOne
     @JoinColumn(name = "staff_id")
     private StaffEntity staff;
 }
