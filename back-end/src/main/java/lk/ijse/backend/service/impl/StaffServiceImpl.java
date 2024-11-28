@@ -24,13 +24,13 @@ public class StaffServiceImpl implements StaffService {
     private FieldRepo fieldRepo;
 
     @Autowired
-    private Mapping staffMapper;
+    private Mapping mapping;
     
     @Override
     public StaffDTO save(StaffDTO dto) {
         dto.setStaffId(AppUtil.generateStaffId());
         try {
-            StaffEntity staffEntity = staffMapper.toStaffEntity(dto);
+            StaffEntity staffEntity = mapping.toStaffEntity(dto);
 
             if (dto.getFieldIds() != null && !dto.getFieldIds().isEmpty()) {
                 // Retrieve and associate fields
@@ -46,7 +46,7 @@ public class StaffServiceImpl implements StaffService {
             // Save the staff entity
             StaffEntity savedStaff = staffRepo.save(staffEntity);
 
-            return staffMapper.toStaffDTO(savedStaff);
+            return mapping.toStaffDTO(savedStaff);
         } catch (Exception e) {
             throw new RuntimeException("Error saving staff: " + e.getMessage(), e);
         }
@@ -92,7 +92,7 @@ public class StaffServiceImpl implements StaffService {
         StaffEntity updatedEntity = staffRepo.save(existingStaff);
 
         // Convert the updated entity back to DTO
-        return staffMapper.toStaffDTO(updatedEntity);
+        return mapping.toStaffDTO(updatedEntity);
     }
 
     @Override
@@ -104,21 +104,21 @@ public class StaffServiceImpl implements StaffService {
     public StaffDTO findById(String id) {
         Optional<StaffEntity> byId = staffRepo.findById(id);
         if (byId.isPresent()){
-            return staffMapper.toStaffDTO(byId.get());
+            return mapping.toStaffDTO(byId.get());
         }
         return null;
     }
 
     @Override
     public List<StaffDTO> findAll() {
-        return staffMapper.asStaffDTOList(staffRepo.findAll());
+        return mapping.asStaffDTOList(staffRepo.findAll());
     }
 
     @Override
     public Optional<StaffDTO> findByEmail(String email) {
         Optional<StaffEntity> byEmail = staffRepo.findByEmail(email);
 
-        return byEmail.map(staffMapper::toStaffDTO);
+        return byEmail.map(mapping::toStaffDTO);
 
     }
 
@@ -127,6 +127,6 @@ public class StaffServiceImpl implements StaffService {
         StaffEntity staff = staffRepo.findById(staffId)
                 .orElseThrow(() -> new IllegalArgumentException("Staff not found with ID: " + staffId));
 
-        return staffMapper.asFieldDTOList(new ArrayList<>(staff.getFields()));
+        return mapping.asFieldDTOList(new ArrayList<>(staff.getFields()));
     }
 }
