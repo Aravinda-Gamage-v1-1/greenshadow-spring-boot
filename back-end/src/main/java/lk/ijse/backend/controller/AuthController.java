@@ -2,8 +2,11 @@ package lk.ijse.backend.controller;
 
 import lk.ijse.backend.dto.impl.StaffDTO;
 import lk.ijse.backend.dto.impl.UserDTO;
+import lk.ijse.backend.secure.SignIn;
 import lk.ijse.backend.service.StaffService;
 import lk.ijse.backend.service.UserService;
+import lk.ijse.backend.secure.JWTAuthResponse;
+import lk.ijse.backend.service.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -55,11 +58,10 @@ public class AuthController {
     @PostMapping(value = "signIn",consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<JWTAuthResponse> signIn(@RequestBody SignIn signIn){
         return ResponseEntity.ok(authService.signIn(signIn));
-
     }
+
     @PostMapping("refresh")
     public ResponseEntity<JWTAuthResponse> refreshToken(@RequestParam("existingToken") String existingToken) {
         return ResponseEntity.ok(authService.refreshToken(existingToken));
     }
-
 }

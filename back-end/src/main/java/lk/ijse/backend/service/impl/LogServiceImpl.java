@@ -16,6 +16,7 @@ import lk.ijse.backend.service.LogService;
 import lk.ijse.backend.util.AppUtil;
 import lk.ijse.backend.util.Mapping;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -122,6 +123,7 @@ public class LogServiceImpl implements LogService {
     }
 
     @Override
+    @PreAuthorize("hasRole('MANAGER') or hasRole('SCIENTIST')")
     public LogDTO save(LogDTO dto) {
         dto.setLogId(AppUtil.generateLogId());
         LogEntity logEntity = mapping.toLogEntity(dto);
@@ -155,6 +157,7 @@ public class LogServiceImpl implements LogService {
     }
 
     @Override
+    @PreAuthorize("hasRole('MANAGER') or hasRole('SCIENTIST')")
     public LogDTO update(String id, LogDTO dto) {
         LogEntity existingLog = logRepo.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Log not found with ID: " + id));
@@ -195,11 +198,13 @@ public class LogServiceImpl implements LogService {
     }
 
     @Override
+    @PreAuthorize("hasRole('MANAGER') or hasRole('SCIENTIST')")
     public void delete(String id) {
         logRepo.deleteById(id);
     }
 
     @Override
+    @PreAuthorize("hasRole('MANAGER') or hasRole('SCIENTIST')")
     public LogDTO findById(String id) {
         Optional<LogEntity> byId = logRepo.findById(id);
         if (byId.isPresent()){
@@ -209,6 +214,7 @@ public class LogServiceImpl implements LogService {
     }
 
     @Override
+    @PreAuthorize("hasRole('MANAGER') or hasRole('SCIENTIST')")
     public List<LogDTO> findAll() {
         return  mapping.asLogDTOList(logRepo.findAll());
     }

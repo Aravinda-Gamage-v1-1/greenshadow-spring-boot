@@ -10,6 +10,7 @@ import lk.ijse.backend.service.FieldService;
 import lk.ijse.backend.util.AppUtil;
 import lk.ijse.backend.util.Mapping;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -37,6 +38,7 @@ public class FieldServiceImpl implements FieldService {
     }
 
     @Override
+    @PreAuthorize("hasRole('MANAGER') or hasRole('SCIENTIST')")
     public FieldDTO save(FieldDTO dto) {
         dto.setFieldId(AppUtil.generateFieldId());
         FieldEntity field = mapping.toFieldEntity(dto);
@@ -48,6 +50,7 @@ public class FieldServiceImpl implements FieldService {
     }
 
     @Override
+    @PreAuthorize("hasRole('MANAGER') or hasRole('SCIENTIST')")
     public FieldDTO update(String id, FieldDTO dto) {
         FieldEntity existingField = fieldRepo.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Field not found with ID: " + id));
@@ -81,6 +84,7 @@ public class FieldServiceImpl implements FieldService {
     }
 
     @Override
+    @PreAuthorize("hasRole('MANAGER') or hasRole('SCIENTIST')")
     public void delete(String id) {
         fieldRepo.deleteById(id);
     }

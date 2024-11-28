@@ -11,6 +11,7 @@ import lk.ijse.backend.service.EquipmentService;
 import lk.ijse.backend.util.AppUtil;
 import lk.ijse.backend.util.Mapping;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -45,6 +46,7 @@ public class EquipmentServiceImpl implements EquipmentService {
     }
 
     @Override
+    @PreAuthorize("hasRole('MANAGER') or hasRole('ADMINISTRATOR')")
     public EquipmentDTO save(EquipmentDTO dto) {
         dto.setEquipmentId(AppUtil.generateEquipmentId());
         EquipmentEntity equipment = mapping.toEquipmentEntity(dto);
@@ -53,6 +55,7 @@ public class EquipmentServiceImpl implements EquipmentService {
     }
 
     @Override
+    @PreAuthorize("hasRole('MANAGER') or hasRole('ADMINISTRATOR')")
     public EquipmentDTO update(String id, EquipmentDTO dto) {
         EquipmentEntity equipment = equipmentRepo.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Equipment not found with ID: " + id));
@@ -77,11 +80,13 @@ public class EquipmentServiceImpl implements EquipmentService {
     }
 
     @Override
+    @PreAuthorize("hasRole('MANAGER') or hasRole('ADMINISTRATOR')")
     public void delete(String id) {
         equipmentRepo.deleteById(id);
     }
 
     @Override
+    @PreAuthorize("hasRole('MANAGER') or hasRole('ADMINISTRATOR')")
     public EquipmentDTO findById(String id) {
         EquipmentEntity equipment = equipmentRepo.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Equipment not found with ID: " + id));
@@ -89,6 +94,7 @@ public class EquipmentServiceImpl implements EquipmentService {
     }
 
     @Override
+    @PreAuthorize("hasRole('MANAGER') or hasRole('ADMINISTRATOR')")
     public List<EquipmentDTO> findAll() {
         return mapping.asEquipmentDTOList(equipmentRepo.findAll());
     }

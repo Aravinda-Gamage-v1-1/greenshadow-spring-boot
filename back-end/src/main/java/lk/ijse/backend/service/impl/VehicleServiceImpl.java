@@ -9,6 +9,7 @@ import lk.ijse.backend.service.VehicleService;
 import lk.ijse.backend.util.AppUtil;
 import lk.ijse.backend.util.Mapping;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -25,7 +26,7 @@ public class VehicleServiceImpl implements VehicleService {
     private Mapping vehicleMapper;
 
     @Override
-    //@PreAuthorize("hasRole('MANAGER') or hasRole('ADMINISTRATOR')")
+    @PreAuthorize("hasRole('MANAGER') or hasRole('ADMINISTRATOR')")
     public VehicleDTO save(VehicleDTO dto) {
         System.out.println(dto);
         dto.setVehicleId(AppUtil.generateVehicleId());
@@ -39,7 +40,7 @@ public class VehicleServiceImpl implements VehicleService {
     }
 
     @Override
-    //@PreAuthorize("hasRole('MANAGER') or hasRole('ADMINISTRATOR')")
+    @PreAuthorize("hasRole('MANAGER') or hasRole('ADMINISTRATOR')")
     public VehicleDTO update(String id, VehicleDTO dto) {
         VehicleEntity existingVehicle = vehicleRepo.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Vehicle not found with ID: " + id));
@@ -64,13 +65,13 @@ public class VehicleServiceImpl implements VehicleService {
     }
 
     @Override
-    //@PreAuthorize("hasRole('MANAGER') or hasRole('ADMINISTRATOR')")
+    @PreAuthorize("hasRole('MANAGER') or hasRole('ADMINISTRATOR')")
     public void delete(String id) {
         vehicleRepo.deleteById(id);
     }
 
     @Override
-    //@PreAuthorize("hasRole('MANAGER') or hasRole('ADMINISTRATOR') or hasRole('SCIENTIST')")
+    @PreAuthorize("hasRole('MANAGER') or hasRole('ADMINISTRATOR') or hasRole('SCIENTIST')")
     public VehicleDTO findById(String id) {
         VehicleEntity vehicle = vehicleRepo.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Vehicle not found with ID: " + id));
@@ -78,13 +79,13 @@ public class VehicleServiceImpl implements VehicleService {
     }
 
     @Override
-    //@PreAuthorize("hasRole('MANAGER') or hasRole('ADMINISTRATOR') or hasRole('SCIENTIST')")
+    @PreAuthorize("hasRole('MANAGER') or hasRole('ADMINISTRATOR') or hasRole('SCIENTIST')")
     public List<VehicleDTO> findAll() {
         return vehicleMapper.asVehicleDTOList(vehicleRepo.findAll());
     }
     // Get Vehicles by Staff ID
     @Override
-    //@PreAuthorize("hasRole('MANAGER') or hasRole('ADMINISTRATOR') or hasRole('SCIENTIST')")
+    @PreAuthorize("hasRole('MANAGER') or hasRole('ADMINISTRATOR') or hasRole('SCIENTIST')")
     public List<VehicleDTO> getVehiclesByStaffId(String staffId) {
         StaffEntity staff = staffRepo.findById(staffId)
                 .orElseThrow(() -> new IllegalArgumentException("Staff not found with ID: " + staffId));
