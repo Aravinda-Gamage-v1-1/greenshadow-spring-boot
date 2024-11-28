@@ -8,5 +8,5 @@ import java.util.Optional;
 
 public interface StaffService extends BaseService<StaffDTO> {
     Optional<StaffDTO>findByEmail(String email);
-    List<FieldDTO> findFieldOfStaffId(String staffId);
+    List<FieldDTO> getFieldsOfStaffId(String staffId);
 }
