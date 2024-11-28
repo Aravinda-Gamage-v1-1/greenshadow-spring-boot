@@ -2,6 +2,7 @@ package lk.ijse.backend.controller;
 
 import lk.ijse.backend.dto.impl.UserDTO;
 import lk.ijse.backend.service.UserService;
+import lk.ijse.backend.util.Regex;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
