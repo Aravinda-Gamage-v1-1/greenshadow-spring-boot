@@ -2,7 +2,7 @@ package lk.ijse.backend.service;
 
 import org.springframework.security.core.userdetails.UserDetails;
 
-public interface JwtService {
+public interface JWTService {
     String extractUserName(String token);
     String generateToken(UserDetails user);
     boolean validateToken(String token,UserDetails user);

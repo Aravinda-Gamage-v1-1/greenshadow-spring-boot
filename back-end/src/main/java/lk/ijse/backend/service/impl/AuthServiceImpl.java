@@ -4,8 +4,10 @@ import lk.ijse.backend.dto.impl.UserDTO;
 import lk.ijse.backend.entity.UserEntity;
 import lk.ijse.backend.exception.UserNotFoundException;
 import lk.ijse.backend.repository.UserRepo;
+import lk.ijse.backend.secure.JWTAuthResponse;
+import lk.ijse.backend.secure.SignIn;
 import lk.ijse.backend.service.AuthService;
-import lk.ijse.backend.service.JwtService;
+import lk.ijse.backend.service.JWTService;
 import lk.ijse.backend.util.AppUtil;
 import lk.ijse.backend.util.Mapping;
 import lombok.RequiredArgsConstructor;
@@ -19,9 +21,10 @@ import org.springframework.stereotype.Service;
 public class AuthServiceImpl implements AuthService {
     private final UserRepo userRepo;
     private final Mapping mapping;
-    private final JwtService jwtService;
+    private final JWTService jwtService;
     private final AuthenticationManager authenticationManager;
     private final PasswordEncoder passwordEncoder;
+
     @Override
     public JWTAuthResponse signIn(SignIn signIn) {
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(signIn.getEmail(),signIn.getPassword()));
