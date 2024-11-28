@@ -91,7 +91,7 @@ public class LogServiceImpl implements LogService {
 
 
     @Override
-    public Map<String, Object> getRelatedEntitiesAsDTOs(String logId) {
+    public Map<String, Object> getRelatefdEntitiesAsDtos(String logId) {
         Map<String, Object> relatedEntities = new HashMap<>();
         List<FieldDTO> fieldDtos = null;
         List<CropDTO> cropDtos=null;
