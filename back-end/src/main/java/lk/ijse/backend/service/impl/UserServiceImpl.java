@@ -62,10 +62,10 @@ public class UserServiceImpl implements UserService {
         return byEmail.map(mapping::toUserDTO);
     }
 
-    @Override
-    public UserDetailsService userDetailService() {
-        return userName ->
-                userRepo.findByEmail(userName)
-                        .orElseThrow(()->new UserNotFoundException("User Not Found"));
-    }
+//    @Override
+//    public UserDetailsService userDetailService() {
+//        return userName ->
+//                userRepo.findByEmail(userName)
+//                        .orElseThrow(()->new UserNotFoundException("User Not Found"));
+//    }
 }
