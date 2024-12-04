@@ -4,6 +4,7 @@ import lk.ijse.backend.dto.impl.FieldDTO;
 import lk.ijse.backend.dto.impl.StaffDTO;
 import lk.ijse.backend.entity.FieldEntity;
 import lk.ijse.backend.entity.StaffEntity;
+import lk.ijse.backend.exception.StaffNotFoundException;
 import lk.ijse.backend.repository.FieldRepo;
 import lk.ijse.backend.repository.StaffRepo;
 import lk.ijse.backend.service.StaffService;
@@ -22,7 +23,6 @@ public class StaffServiceImpl implements StaffService {
     private StaffRepo staffRepo;
     @Autowired
     private FieldRepo fieldRepo;
-
     @Autowired
     private Mapping mapping;
     
@@ -97,6 +97,12 @@ public class StaffServiceImpl implements StaffService {
 
     @Override
     public void delete(String id) {
+        StaffEntity staff = staffRepo.findById(id)
+                .orElseThrow(() -> new StaffNotFoundException("Field not found with ID: " + id));
+
+        // Remove associations with staff members
+        staff.getLogs().forEach(log -> log.getStaffLogs().remove(staff));
+        staff.getLogs().clear();
         staffRepo.deleteById(id);
     }
 
