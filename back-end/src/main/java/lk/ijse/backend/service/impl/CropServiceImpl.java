@@ -6,7 +6,6 @@ import lk.ijse.backend.entity.FieldEntity;
 import lk.ijse.backend.exception.CropNotFoundException;
 import lk.ijse.backend.repository.CropRepo;
 import lk.ijse.backend.repository.FieldRepo;
-import lk.ijse.backend.repository.UserRepo;
 import lk.ijse.backend.service.CropService;
 import lk.ijse.backend.util.AppUtil;
 import lk.ijse.backend.util.Mapping;

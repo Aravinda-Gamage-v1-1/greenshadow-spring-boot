@@ -28,7 +28,6 @@ public class VehicleServiceImpl implements VehicleService {
     @Override
     @PreAuthorize("hasRole('MANAGER') or hasRole('ADMINISTRATOR')")
     public VehicleDTO save(VehicleDTO dto) {
-        System.out.println(dto);
         dto.setVehicleId(AppUtil.generateVehicleId());
         VehicleEntity vehicle = vehicleMapper.toVehicleEntity(dto);
         if (dto.getStaffId() != null) {

@@ -1,9 +1,11 @@
 package lk.ijse.backend.service.impl;
 
 import lk.ijse.backend.dto.impl.EquipmentDTO;
+import lk.ijse.backend.entity.CropEntity;
 import lk.ijse.backend.entity.EquipmentEntity;
 import lk.ijse.backend.entity.FieldEntity;
 import lk.ijse.backend.entity.StaffEntity;
+import lk.ijse.backend.exception.CropNotFoundException;
 import lk.ijse.backend.repository.EquipmentRepo;
 import lk.ijse.backend.repository.FieldRepo;
 import lk.ijse.backend.repository.StaffRepo;
@@ -86,7 +88,7 @@ public class EquipmentServiceImpl implements EquipmentService {
     }
 
     @Override
-    @PreAuthorize("hasRole('MANAGER') or hasRole('ADMINISTRATOR')")
+    @PreAuthorize("hasRole('MANAGER') or hasRole('ADMINISTRATOR') or hasRole('SCIENTIST')")
     public EquipmentDTO findById(String id) {
         EquipmentEntity equipment = equipmentRepo.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Equipment not found with ID: " + id));
@@ -94,7 +96,7 @@ public class EquipmentServiceImpl implements EquipmentService {
     }
 
     @Override
-    @PreAuthorize("hasRole('MANAGER') or hasRole('ADMINISTRATOR')")
+    @PreAuthorize("hasRole('MANAGER') or hasRole('ADMINISTRATOR') or hasRole('SCIENTIST')")
     public List<EquipmentDTO> findAll() {
         return mapping.asEquipmentDTOList(equipmentRepo.findAll());
     }
