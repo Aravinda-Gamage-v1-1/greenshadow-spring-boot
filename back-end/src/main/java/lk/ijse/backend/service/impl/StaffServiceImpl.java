@@ -60,6 +60,8 @@ public class StaffServiceImpl implements StaffService {
         // Update fields
         existingStaff.setFirstName(dto.getFirstName());
         existingStaff.setLastName(dto.getLastName());
+        existingStaff.setGender(dto.getGender());
+        existingStaff.setDesignation(dto.getDesignation());
         existingStaff.setEmail(dto.getEmail());
         existingStaff.setDob(dto.getDob());
         existingStaff.setAddress(dto.getAddress());
