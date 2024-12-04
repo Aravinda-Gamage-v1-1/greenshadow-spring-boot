@@ -11,7 +11,7 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    background: #274D40;
+    background: #81BFDA;
     border-right: 1px solid #ddd;
     transition: transform 0.3s ease;
 }
@@ -36,7 +36,7 @@ body {
     color: #FAF5E6;
 }
 .sidebar ul li span:hover {
-    background: #57744b;
+    background: #FADA7A;
     cursor: pointer;
 }
 .main-content {
