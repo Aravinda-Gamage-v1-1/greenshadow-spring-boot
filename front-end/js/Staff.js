@@ -277,7 +277,6 @@ $("#staffSave").click(function (){
 $("#addStaffBtn").click(function (){
     console.log("clicked")
     // Gather form data
-
     const firstName = $("#firstNameModal").val();
     const lastName = $("#lastNameModal").val();
     const email = $("#emailModal").val();
@@ -305,12 +304,12 @@ $("#addStaffBtn").click(function (){
         email: email,
         contact: contact,
         dob: dob,
-        address:address,
+        address: address,
         gender: gender,
         role: role,
         designation: designation,
-        joinDate:joinDate,
-        fieldIds: assignedFields // Field IDs as a list
+        joinDate: joinDate,
+        //fieldIds: assignedFields // Field IDs as a list
     };
     console.log(staffData)
 
