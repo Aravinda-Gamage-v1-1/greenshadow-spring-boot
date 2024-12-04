@@ -4,6 +4,7 @@ import lk.ijse.backend.dto.impl.FieldDTO;
 import lk.ijse.backend.dto.impl.StaffDTO;
 import lk.ijse.backend.entity.FieldEntity;
 import lk.ijse.backend.entity.StaffEntity;
+import lk.ijse.backend.exception.FieldNotFoundException;
 import lk.ijse.backend.repository.FieldRepo;
 import lk.ijse.backend.repository.StaffRepo;
 import lk.ijse.backend.service.FieldService;
@@ -86,6 +87,14 @@ public class FieldServiceImpl implements FieldService {
     @Override
     @PreAuthorize("hasRole('MANAGER') or hasRole('SCIENTIST')")
     public void delete(String id) {
+        FieldEntity field = fieldRepo.findById(id)
+                .orElseThrow(() -> new FieldNotFoundException("Field not found with ID: "+id ));
+
+        // Remove associations with staff members
+        field.getStaffMembers().forEach(staff -> staff.getFields().remove(field));
+        field.getLogs().forEach(log -> log.getFieldLogs().remove(field));
+        field.getStaffMembers().clear();
+        field.getLogs().clear();
         fieldRepo.deleteById(id);
     }
 
