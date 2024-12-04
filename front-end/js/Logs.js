@@ -1,8 +1,6 @@
-
-
 function updateLogData(logId) {
     $.ajax({
-        url: `http://localhost:8080/greenShadow/api/v1/logs/${logId}`, // Adjust URL as necessary
+        url: `http://localhost:8080/greenShadow/api/v1/logs/${logId}`,
         type: 'GET',
         headers: {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
@@ -228,7 +226,7 @@ $("#logSaveBtn").click(function () {
 
     // Perform AJAX request
     $.ajax({
-        url: `http://localhost:8080/greenShadow/api/v1/logs/${logId}`, // Replace with your endpoint
+        url: `http://localhost:8080/greenShadow/api/v1/logs/${logId}`,
         type: "PUT",
         data: formData,
         processData: false, // Prevent jQuery from processing the data
@@ -331,7 +329,7 @@ function removeStaff(element) {
 function fetchFieldsForLog(assignedFields) {
 
     $.ajax({
-        url: "http://localhost:8080/greenShadow/api/v1/fields", // Update with your actual endpoint
+        url: "http://localhost:8080/greenShadow/api/v1/fields",
         type: "GET",
         headers: {
             "Authorization": "Bearer " + localStorage.getItem("token")
@@ -359,7 +357,7 @@ function fetchFieldsForLog(assignedFields) {
 function fetchCropForLog(assignedCrops) {
 
     $.ajax({
-        url: "http://localhost:8080/greenShadow/api/v1/crops", // Update with your actual endpoint
+        url: "http://localhost:8080/greenShadow/api/v1/crops",
         type: "GET",
         headers: {
             "Authorization": "Bearer " + localStorage.getItem("token")
@@ -388,7 +386,7 @@ function fetchCropForLog(assignedCrops) {
 function fetchStaffForLog(assignedStaff) {
 
     $.ajax({
-        url: "http://localhost:8080/greenShadow/api/v1/staffs", // Update with your actual endpoint
+        url: "http://localhost:8080/greenShadow/api/v1/staffs",
         type: "GET",
         headers: {
             "Authorization": "Bearer " + localStorage.getItem("token")
@@ -476,13 +474,13 @@ function saveLog() {
     }
     // Perform AJAX request
     $.ajax({
-        url: "http://localhost:8080/greenShadow/api/v1/logs", // Replace with your endpoint
+        url: "http://localhost:8080/greenShadow/api/v1/logs",
         type: "POST",
         data: formData,
         processData: false, // Prevent jQuery from processing the data
         contentType: false, // Set the content type to false for FormData
         headers: {
-            "Authorization": "Bearer " + localStorage.getItem("token") // Add the token header
+            "Authorization": "Bearer " + localStorage.getItem("token")
         },
         success: function (response) {
             showAlert("Log saved successfully!",'success');
@@ -599,7 +597,7 @@ function viewLogDetails(button) {
         url: `http://localhost:8080/greenShadow/api/v1/logs/${logDetail.logId}/related-entities`,
         method: 'GET',
         headers: {
-            "Authorization": "Bearer " + localStorage.getItem("token") // Add the token header
+            "Authorization": "Bearer " + localStorage.getItem("token")
         },
         success: function (data) {
             // Set the fields and crops
@@ -634,7 +632,7 @@ function fetchFieldsAndCropsToUI(logId) {
         url: `http://localhost:8080/greenShadow/api/v1/logs/${logId}/related-entities`,
         method: 'GET',
         headers: {
-            "Authorization": "Bearer " + localStorage.getItem("token") // Add the token header
+            "Authorization": "Bearer " + localStorage.getItem("token")
         },
         success: function (data) {
             // Select the log card using the unique logId

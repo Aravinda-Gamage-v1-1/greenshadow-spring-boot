@@ -1,4 +1,3 @@
-
 // Row click event to open modal and populate it with staff data
 $(document).on("click", ".equip-row", function () {
     const equipData = $(this).data("equip");

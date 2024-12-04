@@ -1,6 +1,3 @@
-// JavaScript for Image Slider
-
-
 function toggleFieldEditMode() {
 
     updateFieldData(fieldId);
@@ -439,7 +436,7 @@ function openFieldModal( button) {
     $('#fieldSize').val(fieldSize);
     // getFieldStaff(fieldCode)
     $.ajax({
-        url: `http://localhost:8080/greenShadow/api/v1/fields/${fieldCode}/staff`, // Adjust the endpoint as needed
+        url: `http://localhost:8080/greenShadow/api/v1/fields/${fieldCode}/staff`, 
         type: 'GET',
         headers: {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
@@ -541,10 +538,6 @@ $("#FieldDeleteBtn").click(function () {
             }
         });
     }
-
-
-
-
 });
 
 
