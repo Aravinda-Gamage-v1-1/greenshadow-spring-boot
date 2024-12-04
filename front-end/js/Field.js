@@ -146,18 +146,18 @@ let map =null
 //initialize the map
 
 function initMap(){
-    // Center coordinates for Panadura, Sri Lanka
-    var panaduraCoordinates = [6.7114, 79.9072];
+    // Center coordinates for Galle, Sri Lanka
+    var galleCoordinates = [6, 80];
 
 // Define broader bounds to cover a larger area
     var bounds = [
-        [6.45, 79.75], // Southwest corner
-        [7.10, 80.05]  // Northeast corner
+        [6.0069, 80.2175], // Southwest corner
+        [6.0547, 80.2194]  // Northeast corner
     ];
 
-    // Initialize map centered on Panadura with zoom level suitable for the area
+    // Initialize map centered on Galle with zoom level suitable for the area
     map = L.map('map', {
-        center: panaduraCoordinates,
+        center: galleCoordinates,
         zoom: 13,
         maxBounds: bounds,
         maxBoundsViscosity: 1.0 // Prevents panning outside bounds
