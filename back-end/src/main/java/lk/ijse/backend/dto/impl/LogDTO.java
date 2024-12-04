@@ -17,6 +17,7 @@ public class LogDTO implements LogStatus {
     private Date date;
     private String image2;
     private String status;
+    //IDs of associated entities for a lightweight representation
     private Set<String> staffIds;
     private Set<String> fieldIds;
     private Set<String> cropIds;

@@ -26,13 +26,13 @@ public class FieldEntity {
     @Column(columnDefinition = "LONGTEXT")
     private String image2;
 
-    @ManyToMany(mappedBy = "fields",cascade = CascadeType.ALL)
+    @ManyToMany(mappedBy = "fields")
     @JsonBackReference
     private Set<StaffEntity> staffMembers = new HashSet<>();
 
     @OneToMany(mappedBy = "field", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<CropEntity> crops ;
-    @ManyToMany(mappedBy = "fieldLogs",cascade = CascadeType.ALL)
+    @ManyToMany(mappedBy = "fieldLogs")
     @JsonBackReference
     private List<LogEntity> logs;
     @OneToMany(mappedBy = "field", cascade = CascadeType.ALL, orphanRemoval = true)

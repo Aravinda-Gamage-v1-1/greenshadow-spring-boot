@@ -42,7 +42,7 @@ public class StaffEntity {
     )
     @JsonManagedReference // Manage the serialization
     private List<FieldEntity> fields;
-    @ManyToMany(mappedBy = "staffLogs",cascade = CascadeType.ALL)
+    @ManyToMany(mappedBy = "staffLogs")
     @JsonBackReference
     private List<LogEntity> logs;
 

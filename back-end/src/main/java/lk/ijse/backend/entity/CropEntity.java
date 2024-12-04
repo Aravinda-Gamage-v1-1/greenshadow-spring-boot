@@ -27,7 +27,7 @@ public class CropEntity {
     @ManyToOne
     @JoinColumn(name = "field_id")
     private FieldEntity field;
-    @ManyToMany(mappedBy = "cropLogs",cascade = CascadeType.ALL)
+    @ManyToMany(mappedBy = "cropLogs")
     @JsonBackReference
     private List<LogEntity> logs;
 }
