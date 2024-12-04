@@ -4,7 +4,7 @@ This project is a comprehensive **Crop Monitoring System** developed for **Green
 
 ---
 
-## Features
+## 🚀 Features
 
 - **User Access Management**: Role-based access for Managers, Administrative Staff, and Scientists.
 - **CRUD Operations**:
@@ -20,7 +20,7 @@ This project is a comprehensive **Crop Monitoring System** developed for **Green
 
 ---
 
-## Tech Stack
+## 🛠️ Tech Stack
 
 ### Frontend
 - **HTML**, **CSS**, **CSS-Frameworks**
@@ -33,7 +33,7 @@ This project is a comprehensive **Crop Monitoring System** developed for **Green
 
 ---
 
-## Project Structure
+## 🗃️ Project Structure
 
 The project follows a **3-layer architecture**:
 1. **API Layer**: REST endpoints for managing entities and operations.
@@ -50,6 +50,9 @@ The project follows a **3-layer architecture**:
 3. **Use Case Diagram**
 
 ---
+## 📑 API Documentation
+Explore the detailed API documentation for Green Shadow using the following link:
+[Green Shadow API Documentation](https://documenter.getpostman.com/view/36972880/2sAYBaApfA)
 
 ## Setup Instructions
 
@@ -63,3 +66,6 @@ The project follows a **3-layer architecture**:
 1. Clone the repository:
    ```bash
    git clone https://github.com/Aravinda-Gamage-v1-1/greenshadow-spring-boot.git
+
+## 📃 License
+This project is licensed under the MIT License. See the `LICENSE` file for details.
