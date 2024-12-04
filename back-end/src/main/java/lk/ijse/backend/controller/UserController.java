@@ -42,7 +42,6 @@ public class UserController {
         }else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND); // User with email not found
         }
-
     }
     
     @PutMapping(value = "/{email}")
@@ -62,10 +61,8 @@ public class UserController {
             user.setPassword(userDto.getPassword()); // Update password
             user.setRole(userDto.getRole()); // Update role if necessary
 
-
             // Save the updated entity back to the database
             UserDTO updatedUser = userService.update(user.getId(),user);
-
 
             return new ResponseEntity<>(updatedUser, HttpStatus.OK); // Success
         } else {
