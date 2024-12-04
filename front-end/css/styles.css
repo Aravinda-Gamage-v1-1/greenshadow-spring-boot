@@ -1,0 +1,112 @@
+.login-bg,.signUp-bg {
+  background-color: #8fa98f;
+}
+
+.custom-container {
+  max-width: 1100px;
+}
+.welcome{
+  font-family: "Itim", cursive;
+  font-weight: 300;
+  font-size: 2.5rem;
+  font-style: normal;
+
+}
+
+.login-card {
+  display: flex;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #f5f2e6;
+}
+
+.logo-section {
+  background-color: #adbf99;
+  padding: 20px;
+  text-align: center;
+}
+
+.logo-img {
+  width: 70%;
+  margin-bottom: 20px;
+}
+
+.hand-img {
+  width: 100%;
+  margin-right: 88px;
+  margin-bottom: -20px;
+}
+
+.userName{
+  width: 80%;
+  height: 50px;
+ margin: 15% auto;
+}
+
+.password{
+  width: 80%;
+  height: 50px;
+ margin: 0 auto;
+}
+
+.form-group-custom {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.input-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10px;
+  color: #83A483;
+  font-size: 20px;
+}
+
+.form-control-custom {
+  flex: 1; /* Makes the input field take the remaining width */
+  padding-left: 40px; /* Extra padding to make room for the icon */
+  border-radius: 25px;
+}
+
+  .forgot-password {
+    margin-right: 50px;
+    color: #8fa98f;
+    font-size: 0.9rem;
+    text-decoration: none;
+  }
+
+  .btn-success {
+    background-color: #57744b;
+    border: none;
+    width: 45%;
+    font-weight: bold;
+    border-radius: 25px;
+    margin-top: 5%;
+  }
+
+  .btn-warning {
+    background-color: #f5b900;
+    border: none;
+    width: 45%;
+    font-weight: bold;
+    border-radius: 25px;
+    margin-top: 5%;
+  }
+  .role{
+    margin:10% ;
+    width: 100%;
+    height: 50px;
+  }
+
+
+  .btn-success:hover,
+  .btn-warning:hover {
+    opacity: 0.9;
+  }
+@media (max-width: 768px) {
+  .hand-image-container {
+    display: none;
+  }
+}
