@@ -1,5 +1,5 @@
 .login-bg,.signUp-bg {
-  background-color: #8fa98f;
+  background-color: #81BFDA;
 }
 
 .custom-container {
@@ -17,17 +17,17 @@
   display: flex;
   border-radius: 10px;
   overflow: hidden;
-  background-color: #f5f2e6;
+  background-color: #B1F0F7;
 }
 
 .logo-section {
-  background-color: #adbf99;
+  background-color: #F5F0CD;
   padding: 20px;
   text-align: center;
 }
 
 .logo-img {
-  width: 70%;
+  width: 100%;
   margin-bottom: 20px;
 }
 
