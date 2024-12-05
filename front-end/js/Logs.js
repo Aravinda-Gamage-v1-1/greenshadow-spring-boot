@@ -501,10 +501,10 @@ $("#saveLogBtn").on("click", saveLog);
 
 function fetchLogs() {
     $.ajax({
-        url: 'http://localhost:8080/greenShadow/api/v1/logs',
-        method: 'GET',
+        url: "http://localhost:8080/greenShadow/api/v1/logs",
+        method: "GET",
         headers: {
-            'Authorization': 'Bearer ' + localStorage.getItem('token')
+            "Authorization": "Bearer "  + localStorage.getItem("token")
         },
         success: function (logs) {
             addLogsToUI(logs);

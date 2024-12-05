@@ -21,7 +21,7 @@ function toggleStaffEditMode() {
 }
 function populateStaffDetails(staffId) {
     $.ajax({
-        url: `http://localhost:8080/greenShadow/api/v1/staffs/${staffId}`, // Replace with your API endpoint
+        url: `http://localhost:8080/greenShadow/api/v1/staffs/${staffId}`,
         method: "GET",
         headers: {
             "Authorization": "Bearer " + localStorage.getItem("token")
@@ -163,7 +163,7 @@ $('#saveBtn').click(function () {
 
     // AJAX call to save staff
     $.ajax({
-        url: `http://localhost:8080/greenShadow/api/v1/staffs/${id}`, // Replace with your backend URL
+        url: `http://localhost:8080/greenShadow/api/v1/staffs/${id}`,
         type: "PUT",
         contentType: "application/json",
         headers: {
@@ -246,7 +246,7 @@ function clearStaffForm() {
 
 function fetchAllFieldsForStaff() {
     $.ajax({
-        url: "http://localhost:8080/greenShadow/api/v1/fields", // Update with your actual endpoint
+        url: "http://localhost:8080/greenShadow/api/v1/fields",
         type: "GET",
         headers: {
             "Authorization": "Bearer " + localStorage.getItem("token")
@@ -316,7 +316,7 @@ $("#addStaffBtn").click(function (){
 
     // AJAX call to save staff
     $.ajax({
-        url: "http://localhost:8080/greenShadow/api/v1/staffs", // Replace with your backend URL
+        url: "http://localhost:8080/greenShadow/api/v1/staffs",
         type: "POST",
         contentType: "application/json",
         headers: {
@@ -340,7 +340,7 @@ $("#addStaffBtn").click(function (){
 
 function fetchStaffData() {
     $.ajax({
-        url: "http://localhost:8080/greenShadow/api/v1/staffs", // Replace with your backend GET endpoint
+        url: "http://localhost:8080/greenShadow/api/v1/staffs",
         type: "GET",
         headers: {
             "Authorization": "Bearer " + localStorage.getItem("token")
@@ -405,7 +405,7 @@ function populateModal(staff) {
 // Fetch assigned fields for the staff
 function fetchAssignedFields(staffId) {
     $.ajax({
-        url: `http://localhost:8080/greenShadow/api/v1/staffs/${staffId}/field`, // Replace with your endpoint
+        url: `http://localhost:8080/greenShadow/api/v1/staffs/${staffId}/field`,
         type: "GET",
         headers: {
             "Authorization": "Bearer " + localStorage.getItem("token")
@@ -458,7 +458,7 @@ $("#staffDeleteBtn").click(function () {
             if (result.isConfirmed) {
                 // Proceed with the deletion action
                 $.ajax({
-                    url: `http://localhost:8080/greenShadow/api/v1/staffs/${StaffId}`, // Your delete endpoint
+                    url: `http://localhost:8080/greenShadow/api/v1/staffs/${StaffId}`,
                     type: "DELETE",
                     headers: {
                         Authorization: "Bearer " + localStorage.getItem("token") // Include JWT in Authorization header

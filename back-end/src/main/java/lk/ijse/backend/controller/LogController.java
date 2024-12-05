@@ -20,6 +20,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("api/v1/logs")
+@CrossOrigin
 public class LogController {
     private static final Logger logger = LoggerFactory.getLogger(LogController.class);
 
