@@ -701,7 +701,7 @@ $("#logDeleteBtn").click(function () {
             if (result.isConfirmed) {
                 // Proceed with the deletion action
                 $.ajax({
-                    url: `http://localhost:8080/greenShadow/api/v1/logs/${logId}`, // Your delete endpoint
+                    url: `http://localhost:8080/greenShadow/api/v1/logs/${logId}`, 
                     type: "DELETE",
                     headers: {
                         Authorization: "Bearer " + localStorage.getItem("token") // Include JWT in Authorization header

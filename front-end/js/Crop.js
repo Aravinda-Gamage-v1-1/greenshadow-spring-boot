@@ -1,4 +1,3 @@
-
 var cropId;
 // Function to preview the uploaded image
 function previewCropImage(event, previewId) {
@@ -14,7 +13,7 @@ function toggleEditCropMode() {
 }
 function updateCropData(cropId){
     $.ajax({
-        url: `http://localhost:8080/greenShadow/api/v1/crops/${cropId}`, // Adjust URL as necessary
+        url: `http://localhost:8080/greenShadow/api/v1/crops/${cropId}`,
         type: 'GET',
         headers: {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
@@ -100,7 +99,7 @@ $("#CropSaveBtn").click(function () {
         processData: false,
         contentType: false,
         headers: {
-            Authorization: "Bearer " + localStorage.getItem("token") // Include JWT in Authorization header
+            Authorization: "Bearer " + localStorage.getItem("token")
         },
         success: function (response) {
             console.log(response)
@@ -192,7 +191,7 @@ $('#addCrop').click(function () {
 // Function to fetch fields and populate the select element
 function fetchAndPopulateFields() {
     $.ajax({
-        url: "http://localhost:8080/greenShadow/api/v1/fields", // Update with your actual endpoint
+        url: "http://localhost:8080/greenShadow/api/v1/fields",
         type: "GET",
         headers: {
             "Authorization": "Bearer " + localStorage.getItem("token")
@@ -201,7 +200,7 @@ function fetchAndPopulateFields() {
             // Assuming response is an array of FieldDto objects
             const fieldSelect = $("#fieldSelect");
             fieldSelect.empty(); // Clear existing options
-            fieldSelect.append('<option value="">Select Field</option>'); // Add default option
+            fieldSelect.append('<option value="">Select Field</option>');
 
             // Populate the select element with field names and IDs
             response.forEach(field => {
@@ -305,10 +304,10 @@ function fetchFieldById(crop, callback) {
     console.log("Field ID:", crop.fieldId);
 
     $.ajax({
-        url: `http://localhost:8080/greenShadow/api/v1/fields/${crop.fieldId}`, // Replace with your actual endpoint
+        url: `http://localhost:8080/greenShadow/api/v1/fields/${crop.fieldId}`,
         type: "GET",
         headers: {
-            "Authorization": "Bearer " + localStorage.getItem("token") // Include token if required
+            "Authorization": "Bearer " + localStorage.getItem("token")
         },
         success: function (response) {
             console.log("Fetched Field Data:", response);
@@ -374,10 +373,10 @@ $("#CropDeleteBtn").click(function () {
          if (result.isConfirmed) {
              // Proceed with the deletion action
              $.ajax({
-                 url: `http://localhost:8080/greenShadow/api/v1/crops/${cropId}`, // Your delete endpoint
+                 url: `http://localhost:8080/greenShadow/api/v1/crops/${cropId}`,
                  type: "DELETE",
                  headers: {
-                     Authorization: "Bearer " + localStorage.getItem("token") // Include JWT in Authorization header
+                     Authorization: "Bearer " + localStorage.getItem("token")
                  },
                  success: function (response) {
                      // Perform actions on successful deletion

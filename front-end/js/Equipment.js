@@ -37,7 +37,7 @@ $("#addNewEquipment").click(function () {
 
 function fetchFieldsForEquipments() {
     $.ajax({
-        url: "http://localhost:8080/greenShadow/api/v1/fields", // Update with your actual endpoint
+        url: "http://localhost:8080/greenShadow/api/v1/fields",
         type: "GET",
         headers: {
             "Authorization": "Bearer " + localStorage.getItem("token")
@@ -46,7 +46,7 @@ function fetchFieldsForEquipments() {
             // Assuming response is an array of FieldDto objects
             const fieldSelect = $("#newAssignedField");
             fieldSelect.empty(); // Clear existing options
-            fieldSelect.append('<option value="">Select Field</option>'); // Add default option
+            fieldSelect.append('<option value="">Select Field</option>');
 
             // Populate the select element with field names and IDs
             response.forEach(field => {
@@ -62,7 +62,7 @@ function fetchFieldsForEquipments() {
 }
 function fetchStaffForEquipment(){
     $.ajax({
-        url: "http://localhost:8080/greenShadow/api/v1/staffs", // Update with your actual endpoint
+        url: "http://localhost:8080/greenShadow/api/v1/staffs",
         type: "GET",
         headers: {
             "Authorization": "Bearer " + localStorage.getItem("token")
@@ -71,7 +71,7 @@ function fetchStaffForEquipment(){
             // Assuming response is an array of FieldDto objects
             const staffSelect = $("#newAssignedStaff");
             staffSelect.empty();
-            staffSelect.append('<option value="">Select Staff</option>'); // Default option
+            staffSelect.append('<option value="">Select Staff</option>');
 
             // Populate the select element with fetched staff and pre-select assigned ones
             staffList.forEach(staff => {
@@ -108,11 +108,11 @@ $("#saveEquipmentBtn").on("click", function () {
 
     // Send the AJAX POST request
     $.ajax({
-        url: "http://localhost:8080/greenShadow/api/v1/equipments", // Adjust the endpoint as necessary
+        url: "http://localhost:8080/greenShadow/api/v1/equipments",
         type: "POST",
         contentType: "application/json",
         headers: {
-            "Authorization": "Bearer " + localStorage.getItem("token"), // Include JWT if required
+            "Authorization": "Bearer " + localStorage.getItem("token"),
         },
         data: JSON.stringify(equipmentDto),
         success: function (response) {
@@ -276,7 +276,7 @@ var equipmentId;
 function populateEquipData(equipId){
     equipmentId = equipId;
     $.ajax({
-        url: `http://localhost:8080/greenShadow/api/v1/equipments/${equipId}`, // Replace with your API endpoint
+        url: `http://localhost:8080/greenShadow/api/v1/equipments/${equipId}`,
         method: "GET",
         headers: {
             "Authorization": "Bearer " + localStorage.getItem("token")
@@ -323,7 +323,7 @@ $("#equipSaveBtn").click(function (){
 
     // Send the AJAX POST request
     $.ajax({
-        url: `http://localhost:8080/greenShadow/api/v1/equipments/${equipmentId}`, // Adjust the endpoint as necessary
+        url: `http://localhost:8080/greenShadow/api/v1/equipments/${equipmentId}`,
         type: "PUT",
         contentType: "application/json",
         headers: {
@@ -375,7 +375,7 @@ $("#deleteEquipmentBtn").click(function () {
             if (result.isConfirmed) {
                 // Proceed with the deletion action
                 $.ajax({
-                    url: `http://localhost:8080/greenShadow/api/v1/equipments/${equipId}`, // Your delete endpoint
+                    url: `http://localhost:8080/greenShadow/api/v1/equipments/${equipId}`,
                     type: "DELETE",
                     headers: {
                         Authorization: "Bearer " + localStorage.getItem("token") // Include JWT in Authorization header

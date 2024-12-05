@@ -1,6 +1,4 @@
-
-
-    /* Glass Effect on Profile Container */
+/* Glass Effect on Profile Container */
 .profile-container {
     background: rgba(255, 255, 255, 0.2); /* Semi-transparent white for glass effect */
     backdrop-filter: blur(10px); /* Frosted glass effect */

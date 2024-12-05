@@ -4,7 +4,7 @@ function toggleFieldEditMode() {
 }
 function updateFieldData(fieldId){
     $.ajax({
-        url: `http://localhost:8080/greenShadow/api/v1/fields/${fieldId}`, // Adjust URL as necessary
+        url: `http://localhost:8080/greenShadow/api/v1/fields/${fieldId}`,
         type: 'GET',
         headers: {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
@@ -268,7 +268,7 @@ $("#FieldSaveBtn").click(function () {
         processData: false,
         contentType: false,
         headers: {
-            Authorization: "Bearer " + localStorage.getItem("token") // Include JWT in Authorization header
+            Authorization: "Bearer " + localStorage.getItem("token") 
         },
         success: function (response) {
             console.log(response)
@@ -458,9 +458,6 @@ function openFieldModal( button) {
     `);
 
    $("#fieldDetailModal").modal('show')
-
-
-
 }
 
   $("#FieldUpdateBtn").click(function() {
@@ -512,7 +509,7 @@ $("#FieldDeleteBtn").click(function () {
             if (result.isConfirmed) {
                 // Proceed with the deletion action
                 $.ajax({
-                    url: `http://localhost:8080/greenShadow/api/v1/fields/${fieldId}`, // Your delete endpoint
+                    url: `http://localhost:8080/greenShadow/api/v1/fields/${fieldId}`, 
                     type: "DELETE",
                     headers: {
                         Authorization: "Bearer " + localStorage.getItem("token") // Include JWT in Authorization header

@@ -1,5 +1,4 @@
-
-    /* Log Card */
+/* Log Card */
 .log-card {
     flex: 1 1 calc(50% - 10px); /* Each card takes 50% of the container width minus the gap */
     position: relative;

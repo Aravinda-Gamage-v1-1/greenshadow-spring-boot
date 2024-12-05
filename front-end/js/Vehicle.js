@@ -1,4 +1,3 @@
-
 // Row click event to open modal and populate it with staff data
 $(document).on("click", ".vehicle-row", function () {
     const vehicleData = $(this).data("vehicle");
@@ -50,7 +49,7 @@ var vehicleID ;
 function populateVehicleData(vehicleId) {
     vehicleID = vehicleId;
     $.ajax({
-        url: `http://localhost:8080/greenShadow/api/v1/vehicles/${vehicleId}`, // Replace with your API endpoint
+        url: `http://localhost:8080/greenShadow/api/v1/vehicles/${vehicleId}`,
         method: "GET",
         headers: {
             "Authorization": "Bearer " + localStorage.getItem("token")
@@ -99,7 +98,7 @@ $("#vehicleSaveBtn").click(function (){
 
     // AJAX POST request to save the vehicle
     $.ajax({
-        url: `http://localhost:8080/greenShadow/api/v1/vehicles/${vehicleID}`, // Update with your actual endpoint URL
+        url: `http://localhost:8080/greenShadow/api/v1/vehicles/${vehicleID}`,
         type: "PUT",
         contentType: "application/json",
         data: JSON.stringify(vehicleData),
@@ -163,7 +162,7 @@ function clearVehicleForm() {
 
 function fetchStaffForVehicle(){
     $.ajax({
-        url: "http://localhost:8080/greenShadow/api/v1/staffs", // Update with your actual endpoint
+        url: "http://localhost:8080/greenShadow/api/v1/staffs", 
         type: "GET",
         headers: {
             "Authorization": "Bearer " + localStorage.getItem("token")
@@ -211,7 +210,7 @@ function saveVehicle() {
 
     // AJAX POST request to save the vehicle
     $.ajax({
-        url: "http://localhost:8080/greenShadow/api/v1/vehicles", // Update with your actual endpoint URL
+        url: "http://localhost:8080/greenShadow/api/v1/vehicles", 
         type: "POST",
         contentType: "application/json",
         data: JSON.stringify(vehicleData),
@@ -289,7 +288,7 @@ function populateVehicleModal(vehicleData){
     $("#remarks").val(vehicleData.remarks || "N/A");
     if (vehicleData.staffId) {
         $.ajax({
-            url: `http://localhost:8080/greenShadow/api/v1/staffs/${vehicleData.staffId}`, // Adjust this endpoint to match your backend
+            url: `http://localhost:8080/greenShadow/api/v1/staffs/${vehicleData.staffId}`,
             type: "GET",
             headers: {
                 "Authorization": "Bearer " + localStorage.getItem("token"),
@@ -336,7 +335,7 @@ $("#deleteVehicleBtn").click(function () {
             if (result.isConfirmed) {
                 // Proceed with the deletion action
                 $.ajax({
-                    url: `http://localhost:8080/greenShadow/api/v1/vehicles/${vehicleId}`, // Your delete endpoint
+                    url: `http://localhost:8080/greenShadow/api/v1/vehicles/${vehicleId}`, 
                     type: "DELETE",
                     headers: {
                         Authorization: "Bearer " + localStorage.getItem("token") // Include JWT in Authorization header
@@ -362,10 +361,6 @@ $("#deleteVehicleBtn").click(function () {
             }
         });
     }
-
-
-
-
 });
 
 

@@ -75,7 +75,7 @@ function fetchProfileData() {
 
     // Fetch staff data using the email
     $.ajax({
-        url: `http://localhost:8080/greenShadow/api/v1/staffs/email/${email}`, // Adjust the endpoint URL based on your API
+        url: `http://localhost:8080/greenShadow/api/v1/staffs/email/${email}`,
         method: "GET",
         headers: {
             "Authorization": "Bearer " + localStorage.getItem("token")
