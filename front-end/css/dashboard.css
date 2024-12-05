@@ -16,7 +16,7 @@ body {
     transition: transform 0.3s ease;
 }
 .sidebar-header img {
-    width: 80%;
+    width: 100%;
     margin: 15px auto;
     display: block;
 }
