@@ -31,7 +31,7 @@ public class AuthServiceImpl implements AuthService {
         var user = userRepo.findByEmail(signIn.getEmail())
                 .orElseThrow(() -> new UserNotFoundException("User Not found"));
         var generatedToken = jwtService.generateToken(user);
-
+        System.out.println("generated token: " + generatedToken);
         return JWTAuthResponse.builder().token(generatedToken).build();
     }
 
@@ -45,6 +45,7 @@ public class AuthServiceImpl implements AuthService {
         UserEntity savedUser = userRepo.save(user);
         //generate token
         var token = jwtService.generateToken(savedUser);
+        System.out.println("token: " + token);
         return JWTAuthResponse.builder().token(token).build();
     }
 
@@ -56,6 +57,7 @@ public class AuthServiceImpl implements AuthService {
         var findUser=  userRepo.findByEmail(userName)
                 .orElseThrow(() -> new UserNotFoundException("User Not found"));
         var refreshedToken = jwtService.refreshToken(findUser);
+        System.out.println("refreshedToken: " + refreshedToken);
         return JWTAuthResponse.builder().token(refreshedToken).build();
     }
 }
