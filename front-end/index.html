@@ -101,12 +101,11 @@
     <header>
       <!-- Top Navbar for mobile view -->
       <div class="top-navbar d-md-none d-flex justify-content-between align-items-center">
-    <span class="menu-toggle">
-              <i class="fas fa-bars fa-lg"></i>
-              <i class="fa-solid fa-bell"></i>
-              <i class="fa-solid fa-user"></i>
-
-    </span>
+        <span class="menu-toggle">
+          <i class="fas fa-bars fa-lg"></i>
+          <i class="fa-solid fa-bell"></i>
+          <i class="fa-solid fa-user"></i>
+        </span>
         <img src="img/greenshadowlogo-02.png" alt="Green Shadow Logo" class="img-fluid" style="height: 40px;">
       </div>
 
@@ -126,6 +125,7 @@
           <li><span id="nav-log-out"><i class="fa-solid fa-arrow-right-from-bracket"></i> Log out</span></li>
         </ul>
       </nav>
+
       <!-- Top Navbar -->
       <nav class="navbar navbar-light bg-light mb-4 custom-nav">
         <span class="navbar-brand dashboard-topic">Dashboard</span>
@@ -140,7 +140,6 @@
     <section id="dashboard-section" class="main-content">
       <!-- Content -->
       <div class="">
-
 
         <!-- Dashboard Cards -->
         <div class="row dashboard-cards">
@@ -178,7 +177,6 @@
           </div>
         </div>
 
-
         <!-- Charts -->
         <div class="row chart-cards">
           <div class="col-md-6">
@@ -203,7 +201,6 @@
           </div>
         </div>
       </div>
-
     </section>
 
     <!--Field section -->
@@ -212,8 +209,8 @@
 
         <!--  Search Bar -->
         <div class="search-bar mb-4">
-          <i class="fas fa-search "></i>
-          <input type="text" placeholder="Search fields by location...">
+          <!-- <i class="fas fa-search "></i>
+          <input id="fieldSearch" type="text" placeholder="Search field names..."> -->
         </div>
         <!--container of fields-->
         <div id="field-container" class="item-container container ">
@@ -222,7 +219,6 @@
             <img src="img/noData.png" class="no-data-img">
             <p class="empty-message">No fields available to display</p>
           </div>
-
           <!-- Card -->
         </div>
         <div class="add-btn-container">
@@ -337,7 +333,6 @@
                   <label for="fieldLocation">Select Location</label>
                   <div id="map" style="height: 300px; border-radius: 8px; margin-bottom: 15px;"></div>
                   <input type="text" class="form-control" id="location" placeholder="Location" readonly>
-
                 </div>
                 <div class="form-group">
                   <label for="Size">Extent Size (Sq. m)</label>
@@ -361,7 +356,6 @@
                     <img id="preview2" class="img-preview mt-3" src="" alt="Image Preview" style="display:none; ">
                   </div>
                 </div>
-
               </form>
             </div>
             <div class="modal-footer btn">
@@ -385,8 +379,8 @@
       <div class="main-content">
         <!--  Search Bar -->
         <div class="search-bar mb-4">
-          <i class="fas fa-search "></i>
-          <input type="text" placeholder="Search Crops by Field name...">
+          <!-- <i class="fas fa-search "></i>
+          <input type="text" placeholder="Search Crops by Field name..."> -->
         </div>
         <!--container of fields-->
         <div id="crop-container" class="container item-container">

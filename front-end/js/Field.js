@@ -56,6 +56,7 @@ function populateUpdateFieldModal(fieldData) {
     document.getElementById("FieldSaveBtn").style.display = "inline-block";
 
 }
+
 // Function to parse the location string and set the map
 function setFieldLocation(locationString) {
     // Example: "6.7241° N, 79.9164° E"
